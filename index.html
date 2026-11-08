@@ -24,7 +24,7 @@ fbq('track', 'PageView');
 // Clique no link do checkout (Kirvano) = InitiateCheckout
 document.addEventListener('click', function (e) {
   var a = e.target.closest && e.target.closest('a[href]');
-  if (a && /kirvano/i.test(a.href)) fbq('track', 'InitiateCheckout', { value: 14.99, currency: 'BRL' });
+  if (a && /kiwify|kirvano/i.test(a.href)) fbq('track', 'InitiateCheckout', { value: 14.99, currency: 'BRL' });
 }, true);
 </script>
 <noscript><img height="1" width="1" style="display:none"
@@ -44,11 +44,11 @@ src="https://www.facebook.com/tr?id=1699045478300356&ev=PageView&noscript=1"
 html{scroll-behavior:smooth}body{margin:0;font-family:'Inter',system-ui,sans-serif}
 a{text-decoration:none}
 details summary{cursor:pointer;font-weight:700;list-style:none}
-a[href="#comprar"]{display:inline-flex;align-items:center;position:relative;overflow:hidden;transition:transform .25s cubic-bezier(.34,1.56,.64,1),box-shadow .25s ease,background-color .25s ease}
-a[href="#comprar"]::after{content:"";position:absolute;top:0;left:-75%;width:50%;height:100%;background:linear-gradient(120deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-20deg);pointer-events:none}
-a[href="#comprar"]:hover,a[href="#comprar"]:focus-visible{background:#FFB81F!important;transform:translateY(-3px) scale(1.06);box-shadow:0 0 0 4px rgba(245,164,0,.25),0 12px 30px rgba(245,164,0,.55);animation:pulso-compra 1.2s ease-in-out .3s infinite}
-a[href="#comprar"]:hover::after,a[href="#comprar"]:focus-visible::after{animation:brilho-compra .8s ease}
-a[href="#comprar"]:active{transform:translateY(0) scale(.98)}
+:is(a[href="#comprar"],a[href*="pay.kiwify"]){display:inline-flex;align-items:center;position:relative;overflow:hidden;transition:transform .25s cubic-bezier(.34,1.56,.64,1),box-shadow .25s ease,background-color .25s ease}
+:is(a[href="#comprar"],a[href*="pay.kiwify"])::after{content:"";position:absolute;top:0;left:-75%;width:50%;height:100%;background:linear-gradient(120deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-20deg);pointer-events:none}
+:is(a[href="#comprar"],a[href*="pay.kiwify"]):hover,:is(a[href="#comprar"],a[href*="pay.kiwify"]):focus-visible{background:#FFB81F!important;transform:translateY(-3px) scale(1.06);box-shadow:0 0 0 4px rgba(245,164,0,.25),0 12px 30px rgba(245,164,0,.55);animation:pulso-compra 1.2s ease-in-out .3s infinite}
+:is(a[href="#comprar"],a[href*="pay.kiwify"]):hover::after,:is(a[href="#comprar"],a[href*="pay.kiwify"]):focus-visible::after{animation:brilho-compra .8s ease}
+:is(a[href="#comprar"],a[href*="pay.kiwify"]):active{transform:translateY(0) scale(.98)}
 @keyframes brilho-compra{to{left:130%}}
 @keyframes pulso-compra{0%,100%{box-shadow:0 0 0 4px rgba(245,164,0,.25),0 12px 30px rgba(245,164,0,.55)}50%{box-shadow:0 0 0 10px rgba(245,164,0,0),0 12px 30px rgba(245,164,0,.55)}}
 #publico>div>div{position:relative;box-shadow:0 10px 24px rgba(15,27,45,.08);animation:flutuar 4s ease-in-out infinite;transition:transform .35s cubic-bezier(.34,1.56,.64,1),box-shadow .35s ease,border-color .35s ease;will-change:transform,translate}
@@ -97,7 +97,7 @@ header~div>span>span{margin-left:0}
 header~div>span>span{font-size:18px!important}
 }
 @media (prefers-reduced-motion:reduce){#publico>div>div{animation:none;transition:none}#publico>div>div:hover{transform:none}}
-@media (prefers-reduced-motion:reduce){a[href="#comprar"],a[href="#comprar"]:hover{transition:none;animation:none;transform:none}a[href="#comprar"]::after{display:none}}
+@media (prefers-reduced-motion:reduce){:is(a[href="#comprar"],a[href*="pay.kiwify"]),:is(a[href="#comprar"],a[href*="pay.kiwify"]):hover{transition:none;animation:none;transform:none}:is(a[href="#comprar"],a[href*="pay.kiwify"])::after{display:none}}
 </style>
 </helmet>
 <div style="background: #F7F8FA; color: #0F1B2D; font-family: 'Inter', system-ui, sans-serif">
@@ -149,7 +149,7 @@ header~div>span>span{font-size:18px!important}
 <p style="margin: 0; font-size: 56px; font-weight: 800; color: #F5A400">R$ 14,99</p>
 </div>
 <p style="margin: 0; font-size: 18px; line-height: 1.55; color: #D5DBE6">Acesso imediato por e-mail após a confirmação do pagamento.</p>
-<a href="#comprar" style="background: #F5A400; color: #0F1B2D; font-weight: 800; font-size: 18px; padding: 18px 32px; border-radius: 10px; min-height: 44px; box-sizing: border-box">Comprar agora [LINK DO CHECKOUT]</a></div>
+<a href="https://pay.kiwify.com.br/SKy5aKp" style="background: #F5A400; color: #0F1B2D; font-weight: 800; font-size: 18px; padding: 18px 32px; border-radius: 10px; min-height: 44px; box-sizing: border-box">Comprar agora</a></div>
 <img src="img/apostila-ibge-2027.png" alt="Capa da Apostila Concurso IBGE 2027" style="flex: 0 1 420px; width: 100%; max-width: 420px; height: auto; border-radius: 16px; box-shadow: 0 20px 50px rgba(0,0,0,0.45)">
 </section>
 
